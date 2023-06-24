@@ -23,10 +23,10 @@ def home():
         prompt = format_prompt(information)
         response = ask_gpt(prompt)
 
+        content = response.choices[0]['message']['content']
+        content_lists = content.split('\n')
 
-        print(response.choices[0].text.strip())
-
-        return render_template('article.html', content=response.choices[0].text.strip())
+        return render_template('article.html', content=content_lists)
 
     return render_template('home.html')
 

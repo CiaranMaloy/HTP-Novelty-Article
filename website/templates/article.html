@@ -37,7 +37,12 @@
   
   <article>
     <h2>Article Subtitle</h2>
-    <p>{{content}}</p>
+    
+    <p>
+    {% for line in content%}
+    {{line}}<br>
+    {% endfor %}
+  </p>
   </article>
   
   <footer>
