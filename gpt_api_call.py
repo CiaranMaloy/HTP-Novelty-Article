@@ -9,8 +9,8 @@ def ask_gpt(question):
     response = openai.Completion.create(
         engine='text-davinci-003',
         prompt=question,
-        max_tokens=500,
-        temperature=0.7,
+        max_tokens=3000,
+        temperature=0.9,
         n=1,
         stop=None,
         timeout=15
