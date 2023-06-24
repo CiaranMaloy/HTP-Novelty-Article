@@ -1,21 +1,33 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-    %}
-    <h1 align="center">Notes</h1>
-    <ul class="list-group list-group-flush" id="notes">
-      {% for note in user.notes %}
-      <li class="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </li>
-      {% endfor %}
-    </ul>
-    <form method="POST">
-      <textarea name="note" id="note" class="form-control"></textarea>
-      <br/>
-      <div align="center">
-        <button type="submit" class="btn btn-primary">Add Note</button>
-      </div>
-    </form>
-    {% endblock %}
+{% extends "base.html"%}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <h3 allign="center"> Sign up </h3>
+    <div class="from-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email"/>
+        
+    </div>
+    <div class="from-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name"/>
+        
+    </div>
+
+    <div class="from-group">
+        <label for="secondName">Second Name</label>
+        <input type="secondName" class="form-control" id="secondName" name="secondName" placeholder="Enter Second Name"/>
+        
+    </div>
+
+    <div class="from-group">
+        <label for="password2">Confirm Password</label>
+        <input type="password2" class="form-control" id="password2" name="password2" placeholder="Confirm Password"/>
+        
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
