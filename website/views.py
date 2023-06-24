@@ -10,17 +10,7 @@ views = Blueprint('views', __name__)
 #@login_required
 def home():
     if request.method == 'POST':
-        email = request.form.get('email')
-        first_name = request.form.get('firstName')
-        second_name = request.form.get('secondName')
-        prompt = request.form.get('prompt')
-
-        information = {
-            'firstName': first_name,
-            'secondName': second_name,
-            'prompt': prompt
-        }
-        prompt = format_prompt(information)
+        prompt = format_prompt(request)
         response = ask_gpt(prompt)
 
         content = response.choices[0]['message']['content']

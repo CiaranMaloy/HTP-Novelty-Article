@@ -1,32 +1,80 @@
-{% extends "base.html"%}
-{% block title %}Sign Up{% endblock %}
-
-{% block content %}
-<form method="POST">
-    <h3 allign="center"> Sign up </h3>
-    <div class="from-group">
-        <label for="email">Email Address</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email"/>
-        
-    </div>
-    <div class="from-group">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name"/>
-        
-    </div>
-    <div class="from-group">
-        <label for="secondName">Second Name</label>
-        <input type="secondName" class="form-control" id="secondName" name="secondName" placeholder="Enter Second Name"/>
-        
-    </div>
-
-    <div class="from-group">
-        <label for="prompt">Prompt</label>
-        <input type="prompt" class="form-control" id="prompt" name="prompt" placeholder="Prompt"/>
-        
-    </div>
-
-    <br />
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Article Generator</title>
+  <style>
+    body {
+      background-color: #E9E1DE;
+      color: #3A3335;
+      font-family: Arial, sans-serif;
+    }
+    
+    h2 {
+      color: #3A3335;
+      text-align: center;
+    }
+    
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #3A3335;
+    }
+    
+    textarea {
+      height: 150px;
+    }
+    
+    input[type="submit"] {
+      background-color: #3A3335;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="background-color: #D1BEB6; padding: 10px;">Article Generator</h2>
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first-name" required>
+    
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last-name" required>
+    
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="age" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="occupation">Occupation:</label>
+    <input type="text" id="occupation" name="occupation" required>
+    
+    <label for="birth-place">Birth Place:</label>
+    <input type="text" id="birth-place" name="birth-place" required>
+    
+    <label for="text">Text (max 1000 characters):</label>
+    <textarea id="text" name="text" rows="6" maxlength="1000" required></textarea>
+    
+    <label for="picture">Upload picture:</label>
+    <input type="file" id="picture" name="picture">
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
