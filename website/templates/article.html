@@ -1,8 +1,8 @@
-{% block title %}Article{% endblock %} {% block content%}
+{% block content%}
 <!DOCTYPE html>
 <html>
 <head>
-  <title>News Article</title>
+  <title>{{article_title}}</title>
   <style>
     /* Add your custom CSS styles here */
     body {
@@ -30,13 +30,12 @@
 </head>
 <body>
   <header>
-    <h1>News Article Title</h1>
+    <h1>{{article_title}}</h1>
     <p class="byline">By Author's Name</p>
-    <p class="date">Date</p>
+    <p class="date">{{date}}</p>
   </header>
   
   <article>
-    <h2>Article Subtitle</h2>
     
     <p>
     {% for line in content%}

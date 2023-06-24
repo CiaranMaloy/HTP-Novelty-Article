@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 import json
 from gpt_api_call import ask_gpt
 from generate_prompt import format_prompt
+from datetime import datetime
 
 views = Blueprint('views', __name__)
 
@@ -16,7 +17,7 @@ def home():
         content = response.choices[0]['message']['content']
         content_lists = content.split('\n')
 
-        return render_template('article.html', content=content_lists)
+        return render_template('article.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'), article_title=request.form['article-title'])
 
     return render_template('home.html')
 
