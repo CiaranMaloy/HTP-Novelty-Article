@@ -1,7 +1,9 @@
 import openai
 
 # Set up your OpenAI API credentials
-openai.api_key = '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'
+with open('open_ai_api_key.txt') as f:
+    key = f.readlines()[0]
+    openai.api_key = key
 
 def ask_gpt(question):
     response = openai.Completion.create(
@@ -15,8 +17,3 @@ def ask_gpt(question):
     )
     
     return response
-
-# Ask a question and get a response
-user_question = input("Ask a question: ")
-response = ask_gpt(user_question)
-print(response)
