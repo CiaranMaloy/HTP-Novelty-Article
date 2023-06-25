@@ -9,10 +9,10 @@ def format_prompt(request):
     first_name = request.form['first-name']
     last_name = request.form['last-name']
     age = request.form['age']
-    email = request.form['email']
+    #email = request.form['email']
     occupation = request.form['occupation']
     birth_place = request.form['birth-place']
-    text = request.form['text']
+    text = request.form['key-details']
 
     # generates prompt
     prompt = "Generate a news article in the style of Waltham Forest Echo (https://walthamforestecho.co.uk/).\n"
