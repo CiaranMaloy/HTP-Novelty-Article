@@ -28,6 +28,6 @@ def format_prompt(request):
     prompt += f"Birth Place: {birth_place}\n\n"
     prompt += "Article Basis:\n"
     prompt += text + "\n"
-    prompt += "No slurs, hate speech, or defamatory statements should be present in this article."
+    #prompt += "No slurs, hate speech, or defamatory statements should be present in this article."
 
     return prompt
