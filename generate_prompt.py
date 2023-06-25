@@ -15,9 +15,10 @@ def format_prompt(request):
     text = request.form['text']
 
     # generates prompt
-    prompt = "Generate a news article in the style of Waltham Forest Echo (https://walthamforestecho.co.uk/)  written by a person with an uncommon British name.\n"
+    prompt = "Generate a news article in the style of Waltham Forest Echo (https://walthamforestecho.co.uk/).\n"
     prompt += "This article should be for novelty and will be in the style of a local newspaper.\n"
-    prompt += "The 'Article Basis' will be the input context and the basis for the content of the article, it will come from a third party who wants to send the article to the subject of the article.\n"
+    prompt += "The 'Article Basis' will be the input context and the basis for the content of the article.\n" 
+    #prompt += "it will come from a third party who wants to send the article to the subject of the article.\n"
     prompt += "This article should be at least 500 words.\n"
     prompt += f"Article Title: {article_title}\n"
     prompt += "Information about the subject of the article:\n"

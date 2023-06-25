@@ -1,5 +1,6 @@
 # cm
 open_ai_api_key.txt
+.API_KEY/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
