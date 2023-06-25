@@ -21,7 +21,7 @@ def home():
         content = response.choices[0]['message']['content']
         content_lists = content.split('\n')
 
-        return render_template('article.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'), article_title=request.form['article-title'], filename=file.filename)
+        return render_template('article.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'), article_title=request.form['article-title']) #filename=file.filename)
 
     return render_template('home.html')
 
