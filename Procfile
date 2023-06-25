@@ -1,1 +1,0 @@
-web: gunicorn ciaran-app-test:app
