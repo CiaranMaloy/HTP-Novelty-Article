@@ -11,7 +11,7 @@ views = Blueprint('views', __name__)
 #@login_required
 def home():
     if request.method == 'POST':
-        file = request.files['picture']
+        #file = request.files['picture']
 
         prompt = format_prompt(request)
         #image_url = generate_image(request.form['article-title'])
