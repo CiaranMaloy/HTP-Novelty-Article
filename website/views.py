@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
 from flask_login import login_required, current_user
 import json
-from gpt_api_call import ask_gpt
+from gpt_api_call import ask_gpt, generate_image, download_image
 from generate_prompt import format_prompt
 from datetime import datetime
 
@@ -14,6 +14,8 @@ def home():
         file = request.files['picture']
 
         prompt = format_prompt(request)
+        #image_url = generate_image(request.form['article-title'])
+        #download_image(image_url, 'image.jpg')
         response = ask_gpt(prompt)
 
         content = response.choices[0]['message']['content']

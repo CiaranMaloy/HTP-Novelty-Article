@@ -1,6 +1,7 @@
 import openai
 import os
 from dotenv import load_dotenv
+import requests
 
 load_dotenv()
 
@@ -23,7 +24,7 @@ def generate_image(prompt):
     generated_image = response['data'][0]['url']
     return generated_image
 
-def download_image(url, save_path, requests):
+def download_image(url, save_path):
     response = requests.get(url)
     with open(save_path, 'wb') as file:
         file.write(response.content)
