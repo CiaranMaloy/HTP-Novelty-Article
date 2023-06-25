@@ -20,7 +20,7 @@ jobs:
         
         - name: execute py script # run main.py
           env:
-            SOME_SECRET: ${{ secrets.OPEN_AI_API_KEY }}
+            OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
           run: python main.py
        
 
