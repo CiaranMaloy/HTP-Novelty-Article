@@ -1,26 +1,38 @@
+import requests
 import openai
+import os
+from dotenv import load_dotenv
 
-# Set up your OpenAI API credentials
-with open('open_ai_api_key.txt') as f:
-    key = f.readlines()[0]
-    openai.api_key = key
+load_dotenv()
+
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 def ask_gpt(question):
-    response = openai.Completion.create(
-        engine='text-davinci-003',
-        prompt=question,
-        max_tokens=500,
-        temperature=0.7,
-        n=1,
-        stop=None,
-        timeout=15
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo", 
+        messages = [{"role": "system", "content" :question}]
     )
     
     return response
 
-# Ask a question and get a response
-user_question = input("Ask a question: ")
-response = ask_gpt(user_question)
-print(response)
-print('\n')
-print(response.choices[0].text.strip())
+def generate_image(prompt):
+    response = openai.Image.create(
+        prompt=prompt,
+        n=1,
+        size="1024x1024"
+    )
+    generated_image = response['data'][0]['url']
+    return generated_image
+
+def download_image(url, save_path):
+    response = requests.get(url)
+    with open(save_path, 'wb') as file:
+        file.write(response.content)
+
+prompt = input("Input your text:")
+generated_image = generate_image(prompt)
+
+# Save image url to into file
+image_url = generated_image
+save_path = 'image.jpg'
+download_image(image_url, save_path)
