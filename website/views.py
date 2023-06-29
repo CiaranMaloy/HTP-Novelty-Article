@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, flash, jsonify, redirect,
 from flask_login import login_required, current_user
 import json
 from gpt_api_call import ask_gpt, generate_image, download_image
-from generate_prompt import format_prompt
+from generate_prompt import format_prompt_article, format_prompt_image
 from datetime import datetime
 
 views = Blueprint('views', __name__)
@@ -13,15 +13,13 @@ def home():
     if request.method == 'POST':
         #file = request.files['picture']
 
-        prompt = format_prompt(request)
-        #image_url = generate_image(request.form['article-title'])
-        #download_image(image_url, 'image.jpg')
-        response = ask_gpt(prompt)
+        image_url = generate_image(format_prompt_image(request))
+        response = ask_gpt(format_prompt_article(request))
 
         content = response.choices[0]['message']['content']
         content_lists = content.split('\n')
 
-        return render_template('article.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'), article_title=request.form['article-title']) #filename=file.filename)
+        return render_template('article.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'), article_title=request.form['article-title'], image_url=image_url)
 
     return render_template('home.html')
 
