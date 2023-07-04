@@ -39,7 +39,7 @@ def bio():
         content = response.choices[0]['message']['content']
         content_lists = content.split('\n')
 
-        return render_template('bio.html', content=content_lists)
+        return render_template('bio.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'))
 
     return render_template('bio-generator.html')
 
