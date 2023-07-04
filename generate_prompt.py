@@ -29,6 +29,37 @@ def format_prompt_article(request):
 
     return prompt
 
+def format_prompt_bio(request):
+    # info
+    #article_title = request.form['article-title']
+    first_name = request.form['first-name']
+    last_name = request.form['last-name']
+    age = request.form['age']
+    #email = request.form['email']
+    occupation = request.form['occupation']
+    birth_place = request.form['birth-place']
+    text = request.form['key-details']
+    employment_history = request.form['employment-history']
+
+    # generates prompt
+    prompt = "Generate a professional bio for a person of interest, this bio should be in long form and be suitable for use in professional environments such as websites and linkedin.\n"
+    prompt += "This bio should be written such that it talks up a persons achievements slightly in a way that a human would not write about himself or herself, while still staying completely true to the base material and realistic.\n"
+    prompt += "The 'Base Material' will be the input context and the basis for the content of the bio.\n" 
+    #prompt += "it will come from a third party who wants to send the article to the subject of the article.\n"
+    prompt += "This bio should be at least 500 words.\n"
+    prompt += "Information about the subject of the bio:\n"
+    prompt += f"Name: {first_name} {last_name}\n"
+    prompt += f"Age: {age}\n"
+    prompt += f"Occupation: {occupation}\n"
+    prompt += f"Birth Place: {birth_place}\n\n"
+    prompt += f"Employment History:\n"
+    prompt += employment_history + "\n"
+    prompt += "Base Material - THIS SHOULD BE MENTIONED WITH IMPORTANCE WITHIN THE BIO:\n"
+    prompt += text + "\n"
+    #prompt += "No slurs, hate speech, or defamatory statements should be present in this article."
+
+    return prompt
+
 def format_prompt_image(request):
     # info
     article_title = request.form['article-title']

@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block title %}Storyteller{% endblock %} {% block content
+    %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectacular Storyteller</title>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #3C3744;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(124, 144, 130, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #3C3744;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #3C3744;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spectacular Storyteller</h1>
+    <p>An Article Generator that Transforms Key Events, People, and Stories into Spellbinding Entertainment! No story is too small or too grand for our Article Generator</p>
+
+    <form action="/spectacular-storyteller" method="POST" enctype="multipart/form-data">
+        <label for="article-title">Article Title:</label>
+        <input type="text" id="article-title" name="article-title" required>
+
+        <h3>Enter the details of the person you want the story to be about:</h3>
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" required>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required>
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" required>
+        <label for="birth-place">Birth Place:</label>
+        <input type="text" id="birth-place" name="birth-place" required>
+
+        <label for="key-details">Specify any key details that you would want to be mentioned in the article:</label>
+        <textarea id="key-details" name="key-details" maxlength="400" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+{% endblock %}

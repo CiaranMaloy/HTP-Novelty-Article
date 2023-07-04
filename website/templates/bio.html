@@ -1,0 +1,45 @@
+{% block content%}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bio</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: "Times New Roman", Times, serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    .byline {
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <p>
+    {% for line in content%}
+    {{line}}<br>
+    {% endfor %}
+  </p>
+  </article>
+  
+  <footer>
+    <p>© Bio. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+{% endblock %}
