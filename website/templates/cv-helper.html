@@ -61,11 +61,11 @@
     </style>
 </head>
 <body>
-    <h1>Bio Generation</h1>
-    <p>A generator that makes a professional style bio given the input</p>
+    <h1>CV Helper</h1>
+    <p>A generator that makes a CV style introduction as per the input</p>
 
-    <form action="/professional-bio" method="POST" enctype="multipart/form-data">
-        <h3>Enter the details of the person you want the bio to be about:</h3>
+    <form action="/cv-helper" method="POST" enctype="multipart/form-data">
+        <h3>Enter the details of the person you want the intro to be about:</h3>
         <label for="first-name">First Name:</label>
         <input type="text" id="first-name" name="first-name" required>
         <label for="last-name">Last Name:</label>
@@ -74,13 +74,21 @@
         <input type="text" id="age" name="age" required>
         <label for="occupation">Occupation:</label>
         <input type="text" id="occupation" name="occupation" required>
-        <label for="birth-place">Birth Place:</label>
-        <input type="text" id="birth-place" name="birth-place" required>
-        <label for="employment-history">Employment History:</label>
-        <textarea id="employment-history" name="employment-history" maxlength="400" required></textarea>
+        <label for="current-location">Current Location (city):</label>
+        <input type="text" id="current-location" name="current-location" required>
 
-        <label for="key-details">Specify any key details that you would want to be mentioned in the bio:</label>
+        <label for="employment-history">Employment History:</label>
+        <textarea id="employment-history" name="employment-history" required></textarea>
+
+        <label for="key-details">Specify any key details that you would want to be mentioned in the cv:</label>
         <textarea id="key-details" name="key-details" maxlength="400" required></textarea>
+
+        <label for="base-intro">Input your current CV intro for context and style:</label>
+        <textarea id="base-intro" name="base-intro" required></textarea>
+
+        <h3>What role is this CV targeting?</h3>
+        <label for="target-roles">Role:</label>
+        <input type="text" id="target-roles" name="target-roles" required>
 
         <input type="submit" value="Submit">
     </form>

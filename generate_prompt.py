@@ -60,6 +60,51 @@ def format_prompt_bio(request):
 
     return prompt
 
+def format_prompt_cv(request):
+    # info
+    #article_title = request.form['article-title']
+    first_name = request.form['first-name']
+    last_name = request.form['last-name']
+    age = request.form['age']
+    #email = request.form['email']
+    occupation = request.form['occupation']
+    current_location = request.form['current-location']
+    text = request.form['key-details']
+    employment_history = request.form['employment-history']
+    target_roles = request.form['target-roles']
+    base_intro = request.form['base-intro']
+
+    # generates prompt
+    prompt = "Generate a short and easy to understand introductory paragraph to a CV, this should be for use in a professional setting.\n"
+    #prompt += "This introduction should be written such that it talks up a persons achievements slightly in a way that a human would not write about himself or herself, slightly, but not too much, British english, not american english.\n"
+    #prompt += "The '' will be the input context and the basis for the content of the bio.\n" 
+    #prompt += "it will come from a third party who wants to send the article to the subject of the article.\n"
+    #prompt += "This bio should be at least 500 words.\n"
+    prompt += "Information about the subject of the CV intro:\n"
+    prompt += f"Name: {first_name} {last_name}\n"
+    prompt += f"Age: {age}\n"
+    prompt += f"Occupation: {occupation}\n"
+    prompt += f"Currently resides in: {current_location}\n\n"
+    prompt += f"Employment History:\n"
+    prompt += employment_history + "\n"
+    prompt += "Key Details - These are details that should be mentioned with importance:\n"
+    prompt += f"Key Details:{text}\n\n"
+    #prompt += "No slurs, hate speech, or defamatory statements should be present in this article."
+
+    prompt += "Target role(s) - IMPORTANT - this is the job role or title that the user wants to be applying for the output should be written with the aim of ataining this job, or this type of job."
+    prompt += "Anything not relating to this role, should be kept out of the introduction and assumed to be part of the body of the CV:"
+    prompt += f"Target Role(s): {target_roles}\n\n"
+
+    prompt += "As an example, here is what the user currently has for his/her CV, use the content at will, this should be an example of what to output:\n"
+    prompt += f"Example/existing intro: {base_intro}\n"
+
+    prompt += "--------------------"
+    prompt += "This should be written as if the user is writing it."
+    prompt += "This should be in thre formal style."
+    prompt += "This is being used to apply for jobs in ther UK."
+
+    return prompt
+
 def format_prompt_image(request):
     # info
     article_title = request.form['article-title']
