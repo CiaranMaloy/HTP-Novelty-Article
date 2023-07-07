@@ -43,6 +43,22 @@ def bio():
 
     return render_template('bio-generator.html')
 
+@views.route('/cv-help', methods=['GET', 'POST'])
+#@login_required
+def bio():
+    if request.method == 'POST':
+        #file = request.files['picture']
+
+        #image_url = generate_image(format_prompt_image(request))
+        response = ask_gpt(format_prompt_cv(request))
+
+        content = response.choices[0]['message']['content']
+        content_lists = content.split('\n')
+
+        return render_template('bio.html', content=content_lists, date=datetime.today().strftime('%Y-%m-%d'))
+
+    return render_template('bio-generator.html')
+
 @views.route('/upload', methods=['POST'])
 def upload():
     file = request.files['picture']
