@@ -6,3 +6,44 @@ What does 'text' mean?
 
 
 1. Things to add: Loading page
+
+_________
+Engineering calculation report: 
+Or generic reporting text
+
+1. Cover page
+- Title
+- Job number 
+- issue number 
+- date 
+- cover picture (of what you're working on)
+
+2. Document history 
+- versioning for document
+
+3. Contents page
+--
+
+----- content ----- 
+1.0 Introduction 
+1.1 design breif 
+1.2 location/map
+
+2.0 Structural design philosophy 
+2.1 (assumptions)
+e.g superstructiore and the assumptions about the project - 
+wall thickness, 
+
+3.0 Performance criteria
+3.1 Guides and standards
+3.2 Design software
+
+-- 
+We had software on our phones where you take a picturre and write a couple of notes where I write down my inspection notes
+and then it would generate a report from this. 
+^^ this would be a better route
+
+'Inspection notes' -> Report
+
+
+
